@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NZWalks.API.Data;
 
@@ -11,9 +12,11 @@ using NZWalks.API.Data;
 namespace NZWalks.API.Migrations
 {
     [DbContext(typeof(NZWalksDbContext))]
-    partial class NZWalksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250203075016_newmigration")]
+    partial class newmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,23 +38,6 @@ namespace NZWalks.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Difficulties");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("f700641a-dd85-4e65-a834-13587f4ac5b6"),
-                            Name = "Easy"
-                        },
-                        new
-                        {
-                            Id = new Guid("3aea4cff-a720-4d3d-b082-ec5f5a594da2"),
-                            Name = "Medium"
-                        },
-                        new
-                        {
-                            Id = new Guid("84bdf8e1-02f9-4394-b4da-545e4bb11afc"),
-                            Name = "Hard"
-                        });
                 });
 
             modelBuilder.Entity("NZWalks.API.Models.Domain.Region", b =>
@@ -74,47 +60,6 @@ namespace NZWalks.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Regions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("f7248fc3-2585-4efb-8d1d-1c555f4087f6"),
-                            Code = "AKL",
-                            Name = "Auckland",
-                            RegionImageUrl = "https://images.pexels.com/photos/5169056/pexels-photo-5169056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        },
-                        new
-                        {
-                            Id = new Guid("6884f7d7-ad1f-4101-8df3-7a6fa7387d81"),
-                            Code = "NTL",
-                            Name = "Northland"
-                        },
-                        new
-                        {
-                            Id = new Guid("14ceba71-4b51-4777-9b17-46602cf66153"),
-                            Code = "BOP",
-                            Name = "Bay Of Plenty"
-                        },
-                        new
-                        {
-                            Id = new Guid("cfa06ed2-bf65-4b65-93ed-c9d286ddb0de"),
-                            Code = "WGN",
-                            Name = "Wellington",
-                            RegionImageUrl = "https://images.pexels.com/photos/4350631/pexels-photo-4350631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        },
-                        new
-                        {
-                            Id = new Guid("906cb139-415a-4bbb-a174-1a1faf9fb1f6"),
-                            Code = "NSN",
-                            Name = "Nelson",
-                            RegionImageUrl = "https://images.pexels.com/photos/13918194/pexels-photo-13918194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        },
-                        new
-                        {
-                            Id = new Guid("f077a22e-4248-4bf6-b564-c7cf4e250263"),
-                            Code = "STL",
-                            Name = "Southland"
-                        });
                 });
 
             modelBuilder.Entity("NZWalks.API.Models.Domain.Walk", b =>
