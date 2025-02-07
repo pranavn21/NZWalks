@@ -9,3 +9,5 @@
         public string? RegionImageUrl { get; set; }
     }
 }
+
+// User gateway makes API call -> DTO -> Domain model -> Controller -> DbContext -> DB server
