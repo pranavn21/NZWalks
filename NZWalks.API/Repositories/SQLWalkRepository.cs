@@ -55,7 +55,7 @@ namespace NZWalks.API.Repositories
             return await walks.Skip(skipResults).Take(pageSize).ToListAsync(); // Skip some results, then take n=pageSize results
 
             //return await dbContext.Walks.Include("Difficulty").Include("Region").ToListAsync();
-        }
+        }   
 
         public async Task<Walk?> GetByIdAsync(Guid id)
         {
