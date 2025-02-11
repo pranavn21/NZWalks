@@ -23,5 +23,6 @@
 
   <ItemGroup>
     <Folder Include="CustomActionFilters" />
+    <Folder Include="Images\" />
   </ItemGroup>
 </Project>
