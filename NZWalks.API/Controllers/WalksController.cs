@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Net;
+using System.Runtime.CompilerServices;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,11 +47,16 @@ namespace NZWalks.API.Controllers
             [FromQuery] string? sortBy, [FromQuery] bool? isAscending,
             [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 1000)
         {
-            var walksDomainModel = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, isAscending ?? true, pageNumber, pageSize); // ?? means if it's nullable, then set it to true
+          
+                var walksDomainModel = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy,
+                    isAscending ?? true, pageNumber, pageSize); // ?? means if it's nullable, then set it to true
 
-            // Map Domain Model to DTO
-            var walkDto = mapper.Map<List<WalkDto>>(walksDomainModel);
-            return Ok(walkDto);
+            // Create an exception
+            throw new Exception("This is a new exception");
+
+                // Map Domain Model to DTO
+                var walkDto = mapper.Map<List<WalkDto>>(walksDomainModel);
+                return Ok(walkDto);
         }
 
         // GET Walk By Id
